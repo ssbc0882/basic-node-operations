@@ -1,0 +1,34 @@
+Exercises
+
+1. Run the commands sort, wc, and uniq on the commands.js file. Explain how they work and what the output was.
+
+A: sort - sorts a file alphabetically. The output has every line of code sorted in alphabetical order.
+Wc - prints newLine, word, and byte counts for a file. Its output is 36, 75, and 877. 36 lines, 75 words, and 877 characters.
+Uniq - sorts each line of code and only returns different line. If there's lines of code that are the same, uniq removes it from the output. Its output is every line of code being outputted. 
+
+2. Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
+
+A: sort commands.js | grep "data". It found two lines with the line "data" sorted in alphabetical order: 
+done(data)
+fs.readFile(fileName, (error, data) => {
+
+It first went through the first pipeline to sort the code in order. Then, it finds out which lines of code contain the word, "data" in the next pipeline. 
+
+6. In this checkpoint, you encountered built-in JavaScript methods as well as the new ES6 syntax. Review the information below before attempting the programming challenge.
+
+var reverseString = (string) => {
+  
+     var newString = [];
+  
+    var splitString = string.split(' ');
+
+  
+  splitString.forEach(element => {
+      var reversed = element.split('').reverse().join('');
+     newString.push(reversed);
+  })
+  
+   var joinString = newString.join(' ');
+  
+    return joinString;
+}
