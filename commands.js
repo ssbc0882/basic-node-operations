@@ -25,6 +25,7 @@ function evaluateCmd(userInput) {
             break;
         default:
             commandLibarary.errorHandler(userInputArray.slice(1));
+
     }
 }
 
@@ -38,7 +39,7 @@ const commandLibarary = {
             if (error) throw error;
             done(data);
         });
-    },
+    }
     "head": function (fullPath) {
         const fileName = fullPath[0];
 

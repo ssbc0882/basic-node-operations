@@ -2,9 +2,163 @@ Exercises
 
 1. Run the commands sort, wc, and uniq on the commands.js file. Explain how they work and what the output was.
 
-A: sort - sorts a file alphabetically. The output has every line of code sorted in alphabetical order.
-Wc - prints newLine, word, and byte counts for a file. Its output is 36, 75, and 877. 36 lines, 75 words, and 877 characters.
-Uniq - sorts each line of code and only returns different line. If there's lines of code that are the same, uniq removes it from the output. Its output is every line of code being outputted. 
+A: sort - sorts every line of code in a file alphabetically. 
+
+Output:
+
+Brs-MacBook-Pro:basic-node-operations br$ sort commands.js
+
+            break;
+            break;
+            break;
+            break;
+            commandLibarary.cat(userInputArray.slice(1));
+            commandLibarary.echo(userInputArray.slice(1).join(" "));
+            commandLibarary.errorHandler(userInputArray.slice(1));
+            commandLibarary.head(userInputArray.slice(1));
+            commandLibarary.tail(userInputArray.slice(1));
+            done("command not found");
+            done(data);
+            done(newDataArray);
+            done(newDataArray);
+            if (error) throw error;
+            if (error) throw error;
+            if (error) throw error;
+            var dataArray = data.toString().split('\n');
+            var dataArray = data.toString().split('\n');
+            var newDataArray = dataArray.slice(0, 10).join('\n');
+            var newDataArray = dataArray.slice(dataArray.length - 10).join('\n');
+        case "cat":
+        case "echo":
+        case "head":
+        case "tail":
+        const fileName = fullPath[0];
+        const fileName = fullPath[0];
+        const fileName = fullPath[0];
+        default:
+        done(userInput);
+        fs.readFile(fileName, (error, data) => {
+        fs.readFile(fileName, (error, data) => {
+        fs.readFile(fileName, (error, data) => {
+        if (userInput !== 'echo' | 'cat' | 'head' | ' tail') {
+        }
+        })
+        })
+        });
+    "cat": function (fullPath) {
+    "echo": function (userInput) {
+    "errorHandler": function (userInput) {
+    "head": function (fullPath) {
+    "tail": function (fullPath) {
+    const command = userInputArray[0];
+    const userInputArray = userInput.split(" ");
+    process.stdout.write('\nprompt > ');
+    process.stdout.write(output);
+    switch (command) {
+    }
+    }
+    }
+    },
+    },
+    },
+const commandLibarary = {
+const fs = require("fs");
+function done(output) {
+function evaluateCmd(userInput) {
+module.exports.commandLibarary = commandLibarary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+}
+};
+
+Wc - prints out lines, words, and byte counts for a file. 
+
+Output: 
+
+Brs-MacBook-Pro:basic-node-operations br$ wc commands.js
+      74     202    2110 commands.js
+
+
+Uniq - sorts each line of code and only returns different line. Any duplicates are not included. If there's lines of code that are the same, uniq removes it from the output.
+
+Output: 
+
+Brs-MacBook-Pro:basic-node-operations br$ uniq commands.js
+const fs = require("fs");
+
+function done(output) {
+    process.stdout.write(output);
+    process.stdout.write('\nprompt > ');
+}
+
+function evaluateCmd(userInput) {
+
+    const userInputArray = userInput.split(" ");
+    const command = userInputArray[0];
+
+    switch (command) {
+        case "echo":
+            commandLibarary.echo(userInputArray.slice(1).join(" "));
+            break;
+        case "cat":
+            commandLibarary.cat(userInputArray.slice(1));
+            break;
+        case "head":
+            commandLibarary.head(userInputArray.slice(1));
+            break;
+        case "tail":
+            commandLibarary.tail(userInputArray.slice(1));
+            break;
+        default:
+            commandLibarary.errorHandler(userInputArray.slice(1));
+
+    }
+}
+
+const commandLibarary = {
+    "echo": function (userInput) {
+        done(userInput);
+    },
+    "cat": function (fullPath) {
+        const fileName = fullPath[0];
+        fs.readFile(fileName, (error, data) => {
+            if (error) throw error;
+            done(data);
+        });
+    }
+    "head": function (fullPath) {
+        const fileName = fullPath[0];
+
+        fs.readFile(fileName, (error, data) => {
+
+            if (error) throw error;
+
+            var dataArray = data.toString().split('\n');
+            var newDataArray = dataArray.slice(0, 10).join('\n');
+            done(newDataArray);
+        })
+    },
+    "tail": function (fullPath) {
+        const fileName = fullPath[0];
+
+        fs.readFile(fileName, (error, data) => {
+
+            if (error) throw error;
+
+            var dataArray = data.toString().split('\n');
+            var newDataArray = dataArray.slice(dataArray.length - 10).join('\n');
+            done(newDataArray);
+        })
+    },
+    "errorHandler": function (userInput) {
+        if (userInput !== 'echo' | 'cat' | 'head' | ' tail') {
+            done("command not found");
+        }
+    }
+};
+
+module.exports.commandLibarary = commandLibarary;
+module.exports.evaluateCmd = evaluateCmd;
 
 2. Using the pipe (|) connect at least two commands and run it on commands.js. Explain what the output was and why the specific data was outputted.
 
